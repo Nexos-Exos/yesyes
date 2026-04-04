@@ -1,0 +1,18 @@
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+
+local function Kick()
+  Player:Kick("Unauthorized user joined!")
+end
+
+for _, Users in next, Players:GetPlayers() do
+  if Users and not table.find(getgenv().Allowed_Users, Users.Name) then
+    Kick()
+  end
+end
+
+Players.PlayerAdded:Connect(function(user)
+  if not table.find(getgenv().Allowed_Users, Users.Name) then
+    Kick()
+  end
+end)
