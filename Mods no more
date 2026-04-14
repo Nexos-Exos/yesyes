@@ -12,7 +12,7 @@ for _, Users in next, Players:GetPlayers() do
 end
 
 Players.PlayerAdded:Connect(function(user)
-  if not table.find(getgenv().Allowed_Users, Users.Name) then
+  if not table.find(getgenv().Allowed_Users, user.Name) then
     Kick()
   end
 end)
