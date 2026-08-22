@@ -8,6 +8,7 @@ local Players = FindFirstChildWhichIsA(game, "Players")
 local Player = Players.LocalPlayer
 local Character = Player.Character
 
+local Connection = false
 local BodyParts = {
   "Head",
   "Torso",
@@ -38,6 +39,8 @@ function Noclip:Enable()
 end
 
 function Noclip:Disable()
+  if not Connection then return end
+  
   print("Noclip Disabled")
   Noclip.On = false
   Connection:Disconnect()
